@@ -20,18 +20,27 @@
 </div>	
 
 
-<div class="input-group" style="margin:100px 0;">
+<div class="input-group" style="margin:100px 0; width:100%;">
 	<div>댓글</div>
 	<form action="{{ url('posts/' . $post->id . '/comments') }}" method="post">
 		{{ csrf_field() }}
 		<div class="input-group">
 			<input class="form-control" type="text" name="name" placeholder="이름">
+			@if($errors->has('name'))
+				<p class="alert_custom">{{$errors->first('name')}}</p>
+			@endif
 		</div>
 		<div class="input-group">
 			<input class="form-control" name="content" placeholder="comment를 입력해주세요">
+			@if($errors->has('content'))
+				<p class="alert_custom">{{$errors->first('content')}}</p>
+			@endif
 		</div>	
 		<div class="input-group">
 			<input class="form-control" type="password" name="password" placeholder="패스워드를 입력해주세요">
+			@if($errors->has('password'))
+				<p class="alert_custom">{{$errors->first('password')}}</p>
+			@endif
 		</div>
 		<button>댓글등록</button>
 	</form>

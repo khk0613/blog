@@ -16,12 +16,6 @@ Route::get('/', function () {
 });
 
 Route::get('/posts/{id}/delete','PostController@haha');
+Route::get('/posts/{post_id}/delete','PostController@haha');
 Route::resource('/posts','PostController');
-// Route::resource('/posts', 'PostController', ['except' => [
-//     'destroy'
-// ]]);
-// Route::get('/posts/{id}/delete', 'DeleteController@haha');
-// Route::delete('/posts/{id}/delete', 'DeleteController@destroy');
-
-
 Route::resource('/posts/{post_id}/comments', 'CommentController');

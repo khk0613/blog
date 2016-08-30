@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 body{
-	background-color: red;
+	/*background-color: red;*/
 }
 
 #notice-message {
@@ -25,9 +25,5 @@ body{
     z-index: 9999;
     top: 7px;
     left: 200px;
-}
-.hi{
-	color:red;
-	border:1px solid red;
-	background-color: red;
+    width: 300px;
 }

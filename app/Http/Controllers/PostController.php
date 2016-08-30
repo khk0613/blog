@@ -76,7 +76,6 @@ class PostController extends Controller
             return redirect('/posts');
         }
     }
-
     function update($id,Request $request){
         $this->validate($request, [
             'content' => 'required'

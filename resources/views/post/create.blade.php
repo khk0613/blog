@@ -26,7 +26,7 @@
 			@endif
 		</div>
 		<div style="text-align:right;">
-			<button type="submit" class="btn btn-default">저장하기</button>
+			<button type="submit" class="btn btn-default">저장</button>
 			<a class="btn btn-default" href="{{ url('posts') }}">취소</a>
 		</div>		
 	</form>

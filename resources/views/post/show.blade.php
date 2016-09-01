@@ -60,10 +60,8 @@
 
 	
 
-	<form action="" method="POST" id="deleteform">
+	
 		<a data-id="{{$post->id}}" class="button_delete btn btn-default" href="{{url('posts/' . $post->id . '/delete')}}">삭제</a>
-		<!-- <input type="password" name="password" class="form-control" placeholder="비밀번호를 입력해주세요" aria-describedby="basic-addon1"> -->
-	</form>
 		<a class="btn btn-default" href="{{url('posts/'.$post->id.'/edit')}}">수정</a>
 		<a class="btn btn-default" href="{{url('/posts')}}">목록</a>
 

@@ -93,15 +93,13 @@ class PostController extends Controller
             'post' => $post
         ]);
     }
-
     function destroy($id,Request $request)
     {
-        $this->validate($request, [
-            'password' => 'required'
-        ]);
-
-        $post = Post::find($id);
-
+         $post = Post::find($id);
+        // if($request->ajax()){
+        //     $post->deleted = true;
+        //     $post->save(); 
+        // }
         if ($post->password == Crypt::encrypt($request->password)) {
             $post->deleted = true;
             $post->save(); 

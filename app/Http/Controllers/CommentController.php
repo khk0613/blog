@@ -35,7 +35,6 @@ class CommentController extends Controller
             ->withErrors($validator)
             ->withInput();
         }else{
-            
             $comment = new Comment;
             $comment->name = $request->name;
             $comment->content = $request->content;
@@ -46,24 +45,8 @@ class CommentController extends Controller
 
     	
     }
-    function destroy($post_id,$id,Request $request)
+    function destroy($id,Request $request)
     {
-        // $this->validate($request, [
-        //     'password' => 'required'
-        // ]);
-
-        $post = Post::find($post_id);
-        $password = $post->password;
-
-        if($password == $request->password){
-            $post->delete();
-            return redirect('/posts/'.$post->id);
-        }else{
-            $this->validate($request, [
-            'password' => 'confirmed'
-        ]);
-            echo '<script>alert(\'비밀번호가 틀립니다.\')</script>';
-        }
-        
+        $comment = Comment::find($id);
     }
 }

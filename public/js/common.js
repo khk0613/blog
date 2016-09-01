@@ -17,12 +17,40 @@ $(function() {
 		initNoticeMessage();
 	}
 
-	// $(".alert_custom").each(function(){
-	// 	$this = $(this);
-	// 	$input = $this.parent().find("input");
-	// 	$input.focus(function(){
-	// 		$this.hide();
-	// 	});
-	// });
+	$.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+	});
 
+    $('.button_delete').on('click', function(e) {
+	    var inputData = $('#deleteform').serialize();
+		var dataId = $(this).attr('data-id');
+		var msg = "삭제하시겠습니까?";
+		if(confirm(msg) != 0){
+			// $.ajax({
+	  //       url: 'http://localhost:8000/posts/' + dataId,
+	  //       type: 'POST',
+	  //       data: inputData,
+	  //       success:window.location.href = 'http://localhost:8000/posts'
+   //  	});
+   			window.location.href = 'http://localhost:8000/posts/' + dataId + '/delete';
+		}else{
+			alert("지우기를 취소하셨습니다.");
+		}
+
+    return false;		
+		
+
+    
+
+    
 });
+
+
+
+
+}); //jquery_end
+	
+
+

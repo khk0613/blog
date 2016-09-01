@@ -2,6 +2,7 @@
 <html lang="ko">
     <head>
         <meta charset="utf-8" >
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>@yield('title')</title>
         <!-- <link rel="stylesheet" href="{{ URL::asset('css/common.css') }}"> -->
     	<!-- 기본적인 css  -->

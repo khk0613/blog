@@ -18,4 +18,4 @@ Route::get('/', function () {
 //Route::get('/posts/{id}/delete','PostController@haha');
 //Route::get('/posts/{post_id}/delete','PostController@haha');
 Route::resource('/posts','PostController');
-Route::resource('/posts/{post_id}/comments/{id}', 'CommentController');
+Route::resource('/posts/{post_id}/comments', 'CommentController');

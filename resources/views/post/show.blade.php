@@ -48,12 +48,15 @@
 <div>
 	<div class="panel panel-primary">
 		@foreach ($post->comments as $comment)
-			<form id="comment-delete-form" action="{{url('posts/' . $post->id . '/comments' . $comment->id)}}" method="POST">
+			<form id="comment-delete-form" action="{{url('posts/' . $post->id . '/comments/' . $comment->id)}}" method="POST">
+				{{ method_field('DELETE') }}
+				{{ csrf_field() }}
 				<div class="panel-heading">{{ $comment->name }}</div>
 				<div class="panel-body">{{ $comment->content }}</div>
 				<a style="text-align:right;" class="btn btn-default" href="">수정하기</a>
-				<a data-id="{{$comment->id}}" style="text-align:right;" id="comment_delete" class="btn btn-default" href="#none">삭제하기</a>
+				<button style="text-align:right;" id="comment_delete">삭제하기</a></button>
 			</form>
+
 		@endforeach
 	</div>
 </div>

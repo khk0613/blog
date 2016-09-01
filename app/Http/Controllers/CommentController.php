@@ -42,10 +42,14 @@ class CommentController extends Controller
             $post->comments()->save($comment);
             return redirect(url('posts/' . $post->id));
         }
-        function destroy($post_id, $id){
-            $post = Post::find($post_id);
+        }
+        
+        function destroy($post_id, $id)
+        {
             $comment = Comment::find($id);
+            $comment->delete();
+            return redirect(url('posts/' . $post_id));
         }
     	
     }
-}
+

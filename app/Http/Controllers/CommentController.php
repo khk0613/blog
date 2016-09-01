@@ -25,7 +25,7 @@ class CommentController extends Controller
             'password' => 'required'
         );
         $messages = array(
-            'title.required' => '타이틀을 입력해주세요',
+            'name.required' => '이름을 입력해주세요',
             'content.required' => '내용을 입력해주세요',
             'password.required' => '비밀번호를 입력해주세요'
         );
@@ -42,11 +42,10 @@ class CommentController extends Controller
             $post->comments()->save($comment);
             return redirect(url('posts/' . $post->id));
         }
-
+        function destroy($post_id, $id){
+            $post = Post::find($post_id);
+            $comment = Comment::find($id);
+        }
     	
-    }
-    function destroy($id,Request $request)
-    {
-        $comment = Comment::find($id);
     }
 }

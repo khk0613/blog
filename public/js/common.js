@@ -23,8 +23,9 @@ $(function() {
         }
 	});
 
-    $('.button_delete').on('click', function(e) {
-	    var inputData = $('#deleteform').serialize();
+	//게시글 삭제    
+    $('#post_delete').on('click', function(e) {
+	    var inputData = $('#post-delete-form').serialize();
 		var dataId = $(this).attr('data-id');
 		var msg = "삭제하시겠습니까?";
 		if(confirm(msg) != 0){
@@ -41,8 +42,25 @@ $(function() {
 
     return false;		
 		
-
+    //댓글 삭제
     
+  //   $('#comment_delete').on('click', function(e) {
+	 //    var inputData = $('#comment-delete-form').serialize();
+		// var dataId = $(this).attr('data-id');
+		// var msg = "삭제하시겠습니까?";
+		// if(confirm(msg) != 0){
+		// 	$.ajax({
+	 //        url: 'http://localhost:8000/posts/' + dataId,
+	 //        type: 'POST',
+	 //        data: inputData,
+	 //        success:window.location.href = 'http://localhost:8000/posts'
+  //   	});
+  //  			//window.location.href = 'http://localhost:8000/posts/' + dataId + '/delete';
+		// }else{
+		// 	alert("지우기를 취소하셨습니다.");
+		// }
+
+  //   return false;		
 
     
 });

@@ -28,13 +28,13 @@ $(function() {
 		var dataId = $(this).attr('data-id');
 		var msg = "삭제하시겠습니까?";
 		if(confirm(msg) != 0){
-			// $.ajax({
-	  //       url: 'http://localhost:8000/posts/' + dataId,
-	  //       type: 'POST',
-	  //       data: inputData,
-	  //       success:window.location.href = 'http://localhost:8000/posts'
-   //  	});
-   			window.location.href = 'http://localhost:8000/posts/' + dataId + '/delete';
+			$.ajax({
+	        url: 'http://localhost:8000/posts/' + dataId,
+	        type: 'POST',
+	        data: inputData,
+	        success:window.location.href = 'http://localhost:8000/posts'
+    	});
+   			//window.location.href = 'http://localhost:8000/posts/' + dataId + '/delete';
 		}else{
 			alert("지우기를 취소하셨습니다.");
 		}

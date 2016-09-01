@@ -52,7 +52,6 @@
 			<div class="panel-body">{{ $comment->content }}</div>
 			<a style="text-align:right;" class="btn btn-default" href="">수정하기</a>
 			<a style="text-align:right;" id="delete" class="btn btn-default" href="#none">삭제하기</a>
-			
 		@endforeach
 	</div>
 </div>
@@ -60,10 +59,13 @@
 
 	
 
-	
-		<a data-id="{{$post->id}}" class="button_delete btn btn-default" href="{{url('posts/' . $post->id . '/delete')}}">삭제</a>
-		<a class="btn btn-default" href="{{url('posts/'.$post->id.'/edit')}}">수정</a>
-		<a class="btn btn-default" href="{{url('/posts')}}">목록</a>
+		<form id="deleteform" action="{{url('posts/' .$post->id )}}" method="POST">
+			{{ method_field('DELETE') }}
+			{{ csrf_field() }}
+			<a data-id="{{$post->id}}" class="button_delete btn btn-default" href="#none">삭제</a>
+			<a class="btn btn-default" href="{{url('posts/'.$post->id.'/edit')}}">수정</a>
+			<a class="btn btn-default" href="{{url('/posts')}}">목록</a>
+		</form>
 
 
 	

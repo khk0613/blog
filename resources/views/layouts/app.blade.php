@@ -22,7 +22,7 @@
         <script type="text/javascript" src="{{ URL::asset('js/common.js') }}"></script>
     </head>
     <body>
-      <div class="container" style="margin-top:200px;">
+      <div class="container" style="">
         @yield('content')
       </div>
     </body>

@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/posts/{id}/delete','PostController@haha');
-Route::get('/posts/{post_id}/delete','PostController@haha');
+//Route::get('/posts/{id}/delete','PostController@haha');
+//Route::get('/posts/{post_id}/delete','PostController@haha');
 Route::resource('/posts','PostController');
 Route::resource('/posts/{post_id}/comments', 'CommentController');

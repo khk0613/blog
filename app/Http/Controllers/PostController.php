@@ -86,29 +86,27 @@ class PostController extends Controller
         return redirect(url('/posts/' . $id));
     }
 
-    function haha($id)
-    {
-        $post = Post::find($id);
-        return view('post.delete',[
-            'post' => $post
-        ]);
-    }
-
+    // function haha($id)
+    // {
+    //     $post = Post::find($id);
+    //     return view('post.delete',[
+    //         'post' => $post
+    //     ]);
+    // }
     function destroy($id,Request $request)
     {
-        $this->validate($request, [
-            'password' => 'required'
-        ]);
-
-        $post = Post::find($id);
-
-        if ($post->password == Crypt::encrypt($request->password)) {
+         $post = Post::find($id);
+        if($request->ajax()){
             $post->deleted = true;
             $post->save(); 
-            return redirect('/posts');
-        } else {
-            $request->session()->flash('notice', '패스워드가 틀렸습니다.');
-            return redirect(url('posts/' . $post->id));
         }
+        // if ($post->password == Crypt::encrypt($request->password)) {
+        //     $post->deleted = true;
+        //     $post->save(); 
+        //     return redirect('/posts');
+        // } else {
+        //     $request->session()->flash('notice', '패스워드가 틀렸습니다.');
+        //     return redirect(url('posts/' . $post->id));
+        // }
     }
 }

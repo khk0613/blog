@@ -25,7 +25,7 @@ class CommentController extends Controller
             'password' => 'required'
         );
         $messages = array(
-            'title.required' => '타이틀을 입력해주세요',
+            'name.required' => '이름을 입력해주세요',
             'content.required' => '내용을 입력해주세요',
             'password.required' => '비밀번호를 입력해주세요'
         );
@@ -35,7 +35,6 @@ class CommentController extends Controller
             ->withErrors($validator)
             ->withInput();
         }else{
-            
             $comment = new Comment;
             $comment->name = $request->name;
             $comment->content = $request->content;
@@ -43,27 +42,14 @@ class CommentController extends Controller
             $post->comments()->save($comment);
             return redirect(url('posts/' . $post->id));
         }
-
-    	
-    }
-    function destroy($post_id,$id,Request $request)
-    {
-        // $this->validate($request, [
-        //     'password' => 'required'
-        // ]);
-
-        $post = Post::find($post_id);
-        $password = $post->password;
-
-        if($password == $request->password){
-            $post->delete();
-            return redirect('/posts/'.$post->id);
-        }else{
-            $this->validate($request, [
-            'password' => 'confirmed'
-        ]);
-            echo '<script>alert(\'비밀번호가 틀립니다.\')</script>';
         }
         
+        function destroy($post_id, $id)
+        {
+            $comment = Comment::find($id);
+            $comment->delete();
+            return redirect(url('posts/' . $post_id));
+        }
+    	
     }
-}
+

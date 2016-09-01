@@ -27,3 +27,8 @@ body{
     left: 200px;
     width: 300px;
 }
+
+.container{
+	margin-top:100px;
+	margin-bottom:100px;
+}

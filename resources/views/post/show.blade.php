@@ -48,10 +48,15 @@
 <div>
 	<div class="panel panel-primary">
 		@foreach ($post->comments as $comment)
-			<div class="panel-heading">{{ $comment->name }}</div>
-			<div class="panel-body">{{ $comment->content }}</div>
-			<a style="text-align:right;" class="btn btn-default" href="">수정하기</a>
-			<a style="text-align:right;" class="btn btn-default" href="">삭제하기</a>
+			<form id="comment-delete-form" action="{{url('posts/' . $post->id . '/comments/' . $comment->id)}}" method="POST">
+				{{ method_field('DELETE') }}
+				{{ csrf_field() }}
+				<div class="panel-heading">{{ $comment->name }}</div>
+				<div class="panel-body">{{ $comment->content }}</div>
+				<a style="text-align:right;" class="btn btn-default" href="">수정하기</a>
+				<button style="text-align:right;" id="comment_delete">삭제하기</a></button>
+			</form>
+
 		@endforeach
 	</div>
 </div>
@@ -59,13 +64,17 @@
 
 	
 
+		<form id="post-delete-form" action="{{url('posts/' .$post->id )}}" method="POST">
+			{{ method_field('DELETE') }}
+			{{ csrf_field() }}
+			<a data-id="{{$post->id}}" id="post_delete" class="btn btn-default" href="#none">삭제</a>
+			<a class="btn btn-default" href="{{url('posts/'.$post->id.'/edit')}}">수정</a>
+			<a class="btn btn-default" href="{{url('/posts')}}">목록</a>
+		</form>
 
-	<a class="btn btn-default" href="{{url('posts/'.$post->id.'/edit')}}">수정</a>
-	<a class="btn btn-default" href="{{url('/posts/'.$post->id.'/delete')}}">삭제</a>
-	<a class="btn btn-default" href="{{url('/posts')}}">목록</a>
 
 	
-	
+
 		
 	
 

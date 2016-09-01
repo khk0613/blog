@@ -2,6 +2,7 @@
 <html lang="ko">
     <head>
         <meta charset="utf-8" >
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>@yield('title')</title>
         <!-- <link rel="stylesheet" href="{{ URL::asset('css/common.css') }}"> -->
     	<!-- 기본적인 css  -->
@@ -21,7 +22,7 @@
         <script type="text/javascript" src="{{ URL::asset('js/common.js') }}"></script>
     </head>
     <body>
-      <div class="container" style="margin-top:200px;">
+      <div class="container" style="">
         @yield('content')
       </div>
     </body>

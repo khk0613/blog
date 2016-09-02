@@ -32,3 +32,8 @@ body{
 	margin-top:100px;
 	margin-bottom:100px;
 }
+
+textarea{
+	height: 200px !important;
+	resize:none;
+}

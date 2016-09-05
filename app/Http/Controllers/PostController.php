@@ -13,6 +13,8 @@ use App\Http\Requests;
 
 use App\Post;
 
+use Stidges\Post;
+
 class PostController extends Controller
 {
     function index()
@@ -34,6 +36,7 @@ class PostController extends Controller
     function show($id, Request $request)
     {
         $post = Post::find($id);
+
         return view('post.show', [
             'notice' => $request->session()->get('notice'),
             'post' => $post   //'post는 view단에서 쓰이는 변수'

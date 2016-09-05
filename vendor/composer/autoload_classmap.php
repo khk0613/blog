@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'AddDeletedToPost' => $baseDir . '/database/migrations/2016_07_28_120002_add_deleted_to_post.php',
     'AddPasswordToPost' => $baseDir . '/database/migrations/2016_08_25_051527_add_password_to_post.php',
+    'AddViewcountToPost' => $baseDir . '/database/migrations/2016_09_05_033055_add_viewcount_to_post.php',
     'CreateCommentsTable' => $baseDir . '/database/migrations/2016_08_18_111706_create_comments_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreatePostsTable' => $baseDir . '/database/migrations/2016_06_23_111207_create_posts_table.php',

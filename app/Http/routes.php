@@ -15,7 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::get('/posts/{id}/delete','PostController@haha');
+Route::get('/login', 'Auth\AuthController@getLogin');
+Route::post('/login', 'Auth\AuthController@postLogin');
+Route::get('/logout', 'Auth\AuthController@getLogout');
+Route::get('/register', 'Auth\AuthController@getRegister');
+Route::post('/register', 'Auth\AuthController@postRegister');
+//Route::post('/login','LoginController@login');
 //Route::get('/posts/{post_id}/delete','PostController@haha');
-Route::resource('/posts','PostController');
-Route::resource('/posts/{post_id}/comments', 'CommentController');
+Route::resource('welcome','PostController');
+// Route::resource('/posts/{post_id}/comments', 'CommentController');
+
+Route::auth(); // 필수
+
+// Route::get('/home', 'HomeController@index');

@@ -17,11 +17,16 @@ use App\Post;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     function index()
     {
         $total_posts_count = Post::where('deleted', false)->count();
         $posts = Post::where('deleted', false)->orderBy('created_at', 'desc')->get(); 
-        return view('post.index', [
+        return view('welcome', [
             'total_posts_count' => $total_posts_count,
             'posts' => $posts
         ]); 

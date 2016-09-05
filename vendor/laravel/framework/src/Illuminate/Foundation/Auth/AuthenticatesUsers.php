@@ -163,7 +163,9 @@ trait AuthenticatesUsers
      */
     public function getLogout()
     {
-        return $this->logout();
+        //return $this->logout();
+        auth()->logout();
+        return redirect()->route('index');
     }
 
     /**

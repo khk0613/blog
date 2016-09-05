@@ -11,6 +11,7 @@
 				@foreach($posts as $post)
 					<li class="list-group-item">
 						<a href="{{url('posts/'. $post->id)}}">{{$post->title}}</a>
+						<p>{{$post->created_at->format('Y.m.d')}}</p>
 					</li>
 				@endforeach
 			</ul>

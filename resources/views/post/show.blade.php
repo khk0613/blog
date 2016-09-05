@@ -68,7 +68,7 @@
 			{{ method_field('DELETE') }}
 			{{ csrf_field() }}
 			<a data-id="{{$post->id}}" id="post_delete" class="btn btn-default" href="#none">삭제</a>
-			<a class="btn btn-default" href="{{url('posts/'.$post->id.'/edit')}}">수정</a>
+			<a class="btn btn-default" href="#none">수정</a>
 			<a class="btn btn-default" href="{{url('/posts')}}">목록</a>
 		</form>
 

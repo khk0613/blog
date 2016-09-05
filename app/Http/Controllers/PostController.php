@@ -13,7 +13,7 @@ use App\Http\Requests;
 
 use App\Post;
 
-use Stidges\Post;
+
 
 class PostController extends Controller
 {
